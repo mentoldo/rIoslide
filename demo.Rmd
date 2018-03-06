@@ -1,0 +1,50 @@
+---
+title: "Simulation Example"
+author: "Matías A. Alfonso"
+date: "March 6, 2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Simulation Example
+Let's create a small simulation:
+```{r, echo = TRUE}
+x <- rnorm(100)
+y <- c(x[1:50] + rnorm(50, sd = .5), 3*x[51:100] + rnorm(50, sd = .5))
+factor <- rep(c("A","B"), each = 50)
+data <- data.frame(x, y)
+```
+
+## Simulation Example
+Let's explore the data table
+```{r}
+library(DT)
+datatable(data, options = list(pageLength = 5))
+```
+
+## Simulation Example
+Making a plot
+```{r cars, echo = TRUE, eval = FALSE}
+plot(x,y, type = "n")
+points(x[1:50], y[1:50], col = "brown1", pch = 16)
+points(x[51:100], y[51:100], col = "mediumslateblue", pch = 16)
+abline(lm(y[1:50] ~ x[1:50]), col = "brown1")
+abline(lm(y[51:100] ~ x[51:100]), col = "mediumslateblue")
+legend("topright", pch = 16, col = c("brown1", "mediumslateblue"),
+       legend = c("A", "B"))
+```
+
+## Simulation Example
+```{r plot}
+plot(x,y, type = "n")
+points(x[1:50], y[1:50], col = "brown1", pch = 16)
+points(x[51:100], y[51:100], col = "mediumslateblue", pch = 16)
+abline(lm(y[1:50] ~ x[1:50]), col = "brown1")
+abline(lm(y[51:100] ~ x[51:100]), col = "mediumslateblue")
+legend("topright", pch = 16, col = c("brown1", "mediumslateblue"),
+       legend = c("A", "B"))
+```
+
