@@ -15,7 +15,7 @@ Let's create a small simulation:
 x <- rnorm(100)
 y <- c(x[1:50] + rnorm(50, sd = .5), 3*x[51:100] + rnorm(50, sd = .5))
 factor <- rep(c("A","B"), each = 50)
-data <- data.frame(x, y)
+data <- data.frame(x, y, Type = factor)
 ```
 
 ## Simulation Example
